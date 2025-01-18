@@ -106,9 +106,7 @@ CMD ["python", "/app/server.py"]
 4. Скрипт для API
 Создайте файл server.py для запуска API:
 
-python
-Копировать
-Редактировать
+```python
 from flask import Flask, request, jsonify
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
@@ -133,6 +131,8 @@ def generate():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
+```
+
 5. Сборка Docker-образа
 Соберите Docker-образ:
 
