@@ -70,9 +70,7 @@ mkdir llama-rag-docker && cd llama-rag-docker
 3. Dockerfile для LLaMA
 Создайте файл Dockerfile:
 
-Dockerfile
-Копировать
-Редактировать
+```Dockerfile
 # Используем легковесный образ Python
 FROM python:3.9-slim
 
@@ -103,6 +101,8 @@ EXPOSE 8080
 
 # Запускаем сервер
 CMD ["python", "/app/server.py"]
+```
+
 4. Скрипт для API
 Создайте файл server.py для запуска API:
 
@@ -160,9 +160,7 @@ bash
 pip install faiss-cpu
 Обновите код API:
 
-python
-Копировать
-Редактировать
+```python
 from flask import Flask, request, jsonify
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import faiss
@@ -203,6 +201,7 @@ def search():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
+```
 8. Пересоберите образ
 Обновите образ, чтобы включить изменения:
 
