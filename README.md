@@ -228,5 +228,33 @@ curl -X POST -H "Content-Type: application/json" \
      http://localhost:8080/search
 Вы получите ближайшие результаты из индекса.
 
+  File "/usr/local/lib/python3.9/site-packages/huggingface_hub/utils/_http.py", line 423, in hf_raise_for_status
+    raise _format(GatedRepoError, message, response) from e
+huggingface_hub.errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-678cb2b1-40b8db10502f81c51cf838d6;d07d83a3-98c7-4da8-8a65-c2db11e661eb)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-3B/resolve/main/config.json.
+Access to model meta-llama/Llama-3.2-3B is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/server.py", line 10, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 891, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py", line 1054, in from_pretrained
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 591, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 650, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/usr/local/lib/python3.9/site-packages/transformers/utils/hub.py", line 421, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-3B.
+401 Client Error. (Request ID: Root=1-678cb2b1-40b8db10502f81c51cf838d6;d07d83a3-98c7-4da8-8a65-c2db11e661eb)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-3B/resolve/main/config.json.
+Access to model meta-llama/Llama-3.2-3B is restricted. You must have access to it and be authenticated to access it. Please log in.
 
 
